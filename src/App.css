@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+html {
+    font-size: 14px;
+}
+
+* {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+}
+
+body {
+    margin: 0;
+    padding: 0 50px 0 50px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: fit-content;
+    padding: 10px 0 10px 0;
+}
+
+li > a {
+    text-decoration: none;
+    color: black;
+}
+
+ul {
+    display: flex;
+    justify-content: space-around;
+}
+#surgeonImg {
+    padding: 5px;
+}
+.surgeonLogo {
+    padding-right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 200px;
+}
+#logoTxt {
+    margin-right: 5px;
+    font-weight: bold;
+    text-wrap: wrap;
+}
+
+ul > li {
+    list-style: none;
+}
+
+li > a {
+    position: relative;
+}
+
+nav {
+    flex: 2;
+}
+
+.func {
+    display: flex;
+    justify-content: space-between;
+}
+
+.func > button,
+.appointmentBtn {
+    margin-left: 10px;
+    padding: 10px 5px 10px 5px;
+    border-radius: 20px;
+    font-size: small;
+    border: 1px solid black;
+    padding: 10px;
+    transition: 0.2s ease all;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.appointmentBtn:hover {
+    color: black;
+    background-color: white;
+}
+.active::after {
+    content: "";
+    position: absolute;
+    top: 110%;
+    height: 1px;
+    background-color: black;
+    width: 0px;
+    left: 0;
+    animation: animateLine 1s forwards;
+}
+
+.heroContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.heroContent > div {
+    flex: 1.5;
+    padding: 50px;
+    text-align: justify;
+}
+
+.heroContent > aside {
+    flex: 1;
+    position: relative;
+}
+.imageContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: rgb(197, 197, 197);
+    position: relative;
+    overflow: hidden;
+}
+aside > label {
+    position: absolute;
+    bottom: 15%;
+    overflow: visible;
+    left: 2%;
+    border-radius: 15px;
+    display: flex;
+    background-color: rgb(228, 228, 228);
+    box-shadow: 0px 0px 20px 1px rgb(120, 120, 120);
+    align-items: center;
+    padding: 5px;
+}
+.imageContainer > img {
+    width: 70%;
+}
+.imgDes {
+    padding: 5px;
+}
+
+.title {
+    margin-top: 30px;
+}
+
+.title > h1 {
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.title > h1::before {
+    content: "";
+    height: 1px;
+    flex: 1;
+    background-color: black;
+}
+.title > h1::after {
+    content: "";
+    height: 1px;
+    background-color: black;
+}
+
+.serv {
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.serv > div {
+    background-color: white;
+    padding: 15px;
+    box-shadow: 0px 0px 50px -20px rgb(119, 119, 119);
+    border-radius: 15px;
+    transition: 0.2s ease all;
+}
+
+.serv > div:hover {
+    scale: 1.05;
+}
+
+@keyframes animateLine {
+    100% {
+        width: 100%;
+    }
+}
