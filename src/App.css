@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
+:root {
+    --padding: 0 50px 0 50px;
+}
+
 html {
     font-size: 14px;
 }
@@ -11,7 +15,6 @@ html {
 
 body {
     margin: 0;
-    padding: 0 50px 0 50px;
 }
 
 header {
@@ -20,6 +23,12 @@ header {
     align-items: center;
     height: fit-content;
     padding: 10px 0 10px 0;
+    position: sticky;
+    top: 0;
+    padding: var(--padding);
+    z-index: 100;
+    backdrop-filter: blur(20px);
+    transition: 0.2s ease all;
 }
 
 li > a {
@@ -72,11 +81,18 @@ nav {
     font-size: small;
     border: 1px solid black;
     padding: 10px;
+    margin: 10px;
     transition: 0.2s ease all;
 }
 
 button:hover {
     cursor: pointer;
+}
+
+.appointmentBtn {
+    background-color: black;
+    font-weight: bold;
+    color: white;
 }
 
 .appointmentBtn:hover {
@@ -91,7 +107,7 @@ button:hover {
     background-color: black;
     width: 0px;
     left: 0;
-    animation: animateLine 1s forwards;
+    animation: animateLine 0.3s forwards;
 }
 
 .heroContent {
@@ -99,6 +115,7 @@ button:hover {
     align-items: center;
     justify-content: center;
     margin-top: 20px;
+    padding: var(--padding);
 }
 
 .heroContent > div {
@@ -164,11 +181,17 @@ aside > label {
     background-color: black;
 }
 
+.services {
+    padding: var(--padding);
+    padding-bottom: 20px;
+}
+
 .serv {
     padding-top: 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 30px;
+    padding: 10px;
 }
 
 .serv > div {
@@ -183,8 +206,23 @@ aside > label {
     scale: 1.05;
 }
 
+.notablePartners {
+    margin-top: 40px;
+    background-color: rgb(207, 206, 206);
+}
+
+.partners {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
 @keyframes animateLine {
+    60% {
+        scale: 1;
+    }
     100% {
         width: 100%;
+        scale: 1.2;
     }
 }

@@ -1,7 +1,20 @@
-import surgeon from "../assets/surgeon-icon.svg";
+import { useEffect } from "react";
+import surgeon from "../assets/homepage/surgeon-icon.svg";
 import { Link } from "react-router-dom";
 
 export default function HeaderComponent() {
+
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 20) {
+                document.querySelector("header").setAttribute("style", "box-shadow:0px 0px 20px -10px black")
+            } else {
+                document.querySelector("header").setAttribute("style", "box-shadow:none")
+            }
+            // console.log(document.querySelector("header").offsetHeight)
+        })
+    }, [])
+
     function handleEnter(event) {
         console.log(event.target.id);
         document.getElementById(event.target.id).classList.add("active");
@@ -76,12 +89,7 @@ export default function HeaderComponent() {
                 <div className="func">
                     <button id="reportBtn">ONLINE REPORT</button>
                     <button
-                        id="appointmentBtn"
-                        style={{
-                            backgroundColor: "black",
-                            fontSize: "bold",
-                            color: "white",
-                        }}
+                        className="appointmentBtn"
                     >
                         BOOK AN APPOINTMENT
                     </button>

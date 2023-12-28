@@ -1,5 +1,5 @@
-import doctorImg from "../assets/doc.png";
-import healthLogo from "../assets/healthLogo.png";
+import doctorImg from "../assets/homepage/doc.png";
+import healthLogo from "../assets/homepage/healthLogo.png";
 
 export default function Hero() {
     return (
@@ -20,11 +20,6 @@ export default function Hero() {
                     </p>
                     <button
                         className="appointmentBtn"
-                        style={{
-                            backgroundColor: "black",
-                            fontSize: "bold",
-                            color: "white",
-                        }}
                     >
                         BOOK AN APPOINTMENT
                     </button>
