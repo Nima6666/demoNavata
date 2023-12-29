@@ -6,7 +6,9 @@ export default function Hero() {
         <>
             <div className="heroContent">
                 <div className="text">
-                    <h1>Best Paediatric Surgeon in Nepal</h1>
+                    <h1 style={{ fontSize: "1.5rem" }}>
+                        Best Colorectal Surgeon in Nepal
+                    </h1>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Illo minima, sit culpa sapiente ipsa quam ab quaerat,
@@ -18,9 +20,7 @@ export default function Hero() {
                         elit. Assumenda tenetur totam facere nobis recusandae
                         vitae repudiandae porro animi, eaque rerum.
                     </p>
-                    <button
-                        className="appointmentBtn"
-                    >
+                    <button className="appointmentBtn">
                         BOOK AN APPOINTMENT
                     </button>
                 </div>
@@ -31,8 +31,8 @@ export default function Hero() {
                     <label>
                         <img src={healthLogo} height="70px" />
                         <div className="imgDes">
-                            <h1>Dr. Jon Doe</h1>
-                            <p>MBBS, MS (Paediatric Surgeon)</p>
+                            <h1>Dr. Binay Yadav</h1>
+                            <p>MBBS, MS (Colorectal Surgeon)</p>
                         </div>
                     </label>
                 </aside>

@@ -1,19 +1,53 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import surgeon from "../assets/homepage/surgeon-icon.svg";
 import { Link } from "react-router-dom";
+import Hamburger from "hamburger-react";
 
 export default function HeaderComponent() {
+    const [ham, setHam] = useState(false);
+    const [isOpen, setOpen] = useState(false);
 
     useEffect(() => {
         window.addEventListener("scroll", () => {
             if (window.scrollY > 20) {
-                document.querySelector("header").setAttribute("style", "box-shadow:0px 0px 20px -10px black")
+                document
+                    .querySelector("header")
+                    .setAttribute(
+                        "style",
+                        "box-shadow:0px 0px 20px -10px black"
+                    );
             } else {
-                document.querySelector("header").setAttribute("style", "box-shadow:none")
+                document
+                    .querySelector("header")
+                    .setAttribute(
+                        "style",
+                        "box-shadow:none, font-weight: normal"
+                    );
             }
-            // console.log(document.querySelector("header").offsetHeight)
-        })
-    }, [])
+        });
+        window.addEventListener("resize", () => {
+            if (document.querySelector("header").offsetWidth < 1000) {
+                setHam(true);
+                document
+                    .querySelector(".hamItems")
+                    .appendChild(document.querySelector(".func"));
+            } else {
+                setHam(false);
+                document
+                    .querySelector("header")
+                    .appendChild(document.querySelector(".func"));
+            }
+            if (document.querySelector("header").offsetWidth < 750) {
+                document
+                    .querySelector(".hamItems")
+                    .appendChild(document.querySelector("nav"));
+            } else {
+                document
+                    .querySelector("header")
+                    .appendChild(document.querySelector("nav"));
+            }
+        });
+    }, []);
 
     function handleEnter(event) {
         console.log(event.target.id);
@@ -23,6 +57,19 @@ export default function HeaderComponent() {
     function handleLeave(event) {
         console.log(event.target.id);
         document.getElementById(event.target.id).classList.remove("active");
+    }
+
+    function handleHamClick() {
+        console.log("handling");
+        if (!isOpen) {
+            document
+                .querySelector(".hamItems")
+                .setAttribute("style", " transform: translateX(0%);");
+        } else {
+            document
+                .querySelector(".hamItems")
+                .setAttribute("style", " transform: translateX(110%);");
+        }
     }
 
     return (
@@ -87,14 +134,18 @@ export default function HeaderComponent() {
                     </ul>
                 </nav>
                 <div className="func">
-                    <button id="reportBtn">ONLINE REPORT</button>
-                    <button
-                        className="appointmentBtn"
-                    >
+                    <button id="loginBtn">LOG IN</button>
+                    <button className="appointmentBtn">
                         BOOK AN APPOINTMENT
                     </button>
                 </div>
+                <div className="hamItems"></div>
             </header>
+            {ham && (
+                <div className="hamburgerContainer" onClick={handleHamClick}>
+                    <Hamburger toggled={isOpen} toggle={setOpen} />
+                </div>
+            )}
         </>
     );
 }
