@@ -32,7 +32,7 @@ export default function Hero() {
                         <img src={healthLogo} height="70px" />
                         <div className="imgDes">
                             <h1>Dr. Binay Yadav</h1>
-                            <p>MBBS, MS (Colorectal Surgeon)</p>
+                            <div>MBBS, MS (Colorectal Surgeon)</div>
                         </div>
                     </label>
                 </aside>

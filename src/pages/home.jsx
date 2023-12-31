@@ -3,6 +3,7 @@ import Hero from "../components/hero";
 import Services from "../components/services";
 import Partners from "../components/partners";
 import { useEffect } from "react";
+import "../assets/styles/homepage.css";
 
 export default function Home() {
     useEffect(() => {

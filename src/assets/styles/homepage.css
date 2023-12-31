@@ -239,25 +239,31 @@ aside > label {
     width: 40px;
 }
 .hamItems {
-    position: absolute;
+    position: fixed;
     height: 100vh;
     width: 400px;
     top: 0;
-    border: 1px solid black;
     right: 0;
     z-index: 100;
     box-shadow: -2px 0 20px -10px black;
     transform: translateX(110%);
     transition: 0.3s ease all;
     padding-top: 70px;
+    backdrop-filter: blur(20px);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 
-.hamItems > * {
-    backdrop-filter: blur(20px);
+.hamItems > .func {
+    flex-direction: column;
+    width: 100%;
+    padding: 20px 5px 20px 5px;
+    align-items: center;
+}
+
+.hamItems > .func > * {
+    width: 70%;
 }
 
 .hamburgerContainer {
@@ -272,6 +278,15 @@ aside > label {
     justify-content: flex-end;
 }
 
+.blocker {
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
 @keyframes animateLine {
     60% {
         scale: 1;
@@ -282,49 +297,7 @@ aside > label {
     }
 }
 
-/* @media (max-width: 900px) {
-    #root {
-        width: 100vw;
-    }
-    header {
-        width: 100%;
-    }
-    .heroContent {
-        flex-direction: column-reverse;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-    }
-
-    aside {
-        display: flex;
-        justify-content: center;
-        width: 60%;
-        align-items: center;
-    }
-    .services {
-        width: 100vw;
-    }
-
-    .notablePartners {
-        border: 1px solid black;
-        width: 100vw;
-    }
-    .partners {
-        border: 1px solid black;
-    }
-} */
-
 @media (max-width: 1000px) {
-    .func {
-        flex-direction: column;
-        width: 100%;
-        padding: 20px 5px 20px 5px;
-        align-items: center;
-    }
-    .func > * {
-        width: 70%;
-    }
     body {
         overflow-x: hidden;
     }
@@ -345,7 +318,20 @@ aside > label {
 }
 
 @media (max-width: 750px) {
+    .hamItems {
+        width: 103vw;
+    }
     nav > ul {
         flex-direction: column;
+    }
+    .imgDes {
+        height: 20px;
+    }
+    .imgDes > * {
+        font-size: smaller;
+    }
+    aside > label > img {
+        width: 50px;
+        height: auto;
     }
 }

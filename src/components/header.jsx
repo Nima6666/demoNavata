@@ -4,10 +4,23 @@ import { Link } from "react-router-dom";
 import Hamburger from "hamburger-react";
 
 export default function HeaderComponent() {
+    let checkOnLoadHam = false
     const [ham, setHam] = useState(false);
     const [isOpen, setOpen] = useState(false);
 
+    if(window.innerWidth < 1000) {
+        checkOnLoadHam = true
+    }
+
     useEffect(() => {
+
+        if (isOpen) {
+            document.querySelector(".blocker").setAttribute("style", "display: block;")
+        }else {
+            document.querySelector(".blocker").setAttribute("style","display: none;")
+
+        }
+
         window.addEventListener("scroll", () => {
             if (window.scrollY > 20) {
                 document
@@ -27,10 +40,12 @@ export default function HeaderComponent() {
         });
         window.addEventListener("resize", () => {
             if (document.querySelector("header").offsetWidth < 1000) {
-                setHam(true);
+
+                
                 document
                     .querySelector(".hamItems")
                     .appendChild(document.querySelector(".func"));
+                setHam(true);
             } else {
                 setHam(false);
                 document
@@ -139,8 +154,9 @@ export default function HeaderComponent() {
                         BOOK AN APPOINTMENT
                     </button>
                 </div>
-                <div className="hamItems"></div>
             </header>
+            <div className="blocker"></div>
+            <div className="hamItems"></div>
             {ham && (
                 <div className="hamburgerContainer" onClick={handleHamClick}>
                     <Hamburger toggled={isOpen} toggle={setOpen} />
